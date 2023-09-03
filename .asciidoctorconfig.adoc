@@ -1,0 +1,1 @@
+:imagesdir: Empty_out_.asciidoctorconfig.adoc_and_press_alt+a

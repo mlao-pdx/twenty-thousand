@@ -1,0 +1,33 @@
+{
+  // AnelGroup.word-stats: Detailed stats on word distributions
+  // arturodent.find-and-transform: Automate content changes
+  // asciidoctor.asciidoctor-vscode: Main support for writing asciidoc
+  // ban.spellright: A void, Miss Steaks, née Tiff Lee
+  // eamodio.gitlens: _Search_ and visualize our changes over time, publication tags
+  // edonet.vscode-command-runner: Turn Terminal commands into vscode commands
+  // geddski.macros: Turn multiple vscode commands into one
+  // Gruntfuggly.todo-tree: Navigate to todos and tags
+  // hoovercj.vscode-settings-cycler: JSON schema issue and Zen toggle
+  // kirozen.wordcounter: Count our precious
+  // pucelle.run-on-save: Automate PDF creation
+  // sandcastle.vscode-open: Opens docx files in Word
+  // thinker.sort-json: Format JSON by sorting on object keys
+  // tomoki1207.pdf: View PDF within VS Code
+  "recommendations": [
+    "AnelGroup.word-stats",
+    "arturodent.find-and-transform",
+    "asciidoctor.asciidoctor-vscode",
+    "ban.spellright",
+    "eamodio.gitlens",
+    "edonet.vscode-command-runner",
+    "geddski.macros",
+    "Gruntfuggly.todo-tree",
+    "hoovercj.vscode-settings-cycler",
+    "kirozen.wordcounter",
+    "pucelle.run-on-save",
+    "sandcastle.vscode-open",
+    "thinker.sort-json",
+    "tomoki1207.pdf"
+  ],
+  "unwantedRecommendations": []
+}

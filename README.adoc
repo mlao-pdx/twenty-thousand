@@ -1,0 +1,366 @@
+:Note: Lozenge setup
+:revnumber: 0.4.1
+:!notitle:
+:experimental:
+
+[CAUTION]
+[.text-center]
+--
+Unless you want to donate your writing to the public domain,
+make sure you replace the LICENSE file
+with one that reflects your intent.
+
+Do not forget to empty out .asciidoctorconfig.adoc
+and to press kbd:[option+a].
+From there on in, follow the snippet's guidance.
+--
+
+[NOTE]
+[.text-center]
+--
+This repository merely documents my configuration
+and makes it a template.
+I share it here,
+mostly because I want to acknowledge the folks whose tools I use.
+
+Lozenge adheres to https://semver.org[semantic versioning].
+--
+
+= Lozenge v{revnumber}: A tool set configuration for writing fiction.
+
+If these sentiments ring true:
+
+* formatting only gets in the way;
+* flat files rule;
+* detailed version control is a savior;
+* navigation should be simple;
+* scope and continuity are a pain to keep straight;
+* https://sembr.org/[semantic line breaks] are useful;
+* online is good, but offline is a must;
+
+then this configuration might be for you.
+
+== Introduction
+
+This is a template repository
+set up for writing fiction in AsciiDoc using
+Visual Studio Code,
+some of its extensions,
+Pandoc,
+and Word.
+
+This set-up was created for MacOS
+and might work out-of-the-box for Linux flavors.
+For Windows machines tweaking will be required,
+especially the convertAsciiDocToDocx macro
+defined in `.vscode/settings.json`.
+
+Lozenge's minimalistic approach means that
+if you explore the snippets (kbd:[option+s])
+and the <<Keybindings>>,
+you already know how most of Lozenge works.
+
+Lozenge leans heavily on AsciiDoc attributes and macros,
+making it a good idea to read up on
+https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[AsciiDoc syntax].
+
+A few concepts cannot be found in the snippets and AsciiDoc syntax:
+
+. Files and document types are Lozenge's building blocks:
+.. the Explorer manages your files and folders,
+however deep or shallow you want
+.. ToDo Tree navigates your writing,
+however deep or shallow it is stored
+. Word document heading styles assume the use of `= Parts` in your book
+. PDF and DOCX files stored in (sub)folders
+_not_ called `assets/` or `published/`
+are deemed generated
+and will _not_ be versioned.
+
+== Installation
+
+These applications need to be installed:
+
+. https://git-scm.com/download[Git] for version control;
+.. if storing large, or many, binary files, install https://git-lfs.com/[GitLFS];
+. https://code.visualstudio.com/Download[Visual Studio Code].
+Allow it to manage your Github repository;
+. extensions per the link:.vscode/extensions.json[workspace recommendations];
+.. AnelGroup.word-stats: Detailed stats on word distributions
+.. arturodent.find-and-transform: Automate content changes
+.. asciidoctor.asciidoctor-vscode: Main support for writing asciidoc
+.. ban.spellright: A void, Miss Steaks, née Tiff Lee
+.. eamodio.gitlens: Search and visualize our changes over time, publication tags
+.. edonet.vscode-command-runner: Turn Terminal commands into vscode commands
+.. geddski.macros: Turn multiple vscode commands into one
+.. Gruntfuggly.todo-tree: Navigate to todos and tags
+.. hoovercj.vscode-settings-cycler: JSON schema issue and Zen toggle
+.. kirozen.wordcounter: Count our precious
+.. pucelle.run-on-save: Automate PDF creation
+.. sandcastle.vscode-open: Opens docx files in Word
+.. thinker.sort-json: Format JSON by sorting on object keys
+.. tomoki1207.pdf: View PDF within VS Code
+. https://pandoc.org/installing.html[Pandoc] to generate docx documents from AsciiDoctor's DocBook exports;
+. https://www.microsoft.com/en-us/microsoft-365/mac/microsoft-365-for-mac[MS Word] for cleaning up manuscripts before they go to editors, publishers, or publishing tools;
+. Optionally you can also:
+.. add a https://github.com/[Github] Account for cloud backups
+and ensure you have enough https://docs.github.com/en/billing/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage[LFS storage];
+
+== Configuration
+
+All configuration files are commented
+where not deemed self-explanatory.
+Skip or change values to meet your needs.
+
+=== Keybindings
+
+From kbd:[Shift+Cmd+P],
+choose `Preferences: Open Keyboard Shortcuts (JSON)`
+and add the keybindings below:
+
+[source,json]
+----
+[
+  {
+    // Run configuration snippet for .asciidoctoroconfig.adoc
+    "args": {
+      "name": "Configure asciidoctorconfig.adoc"
+    },
+    "command": "editor.action.insertSnippet",
+    "key": "alt+a",
+    "when": "editorTextFocus && editorLangId == asciidoc"
+  },
+  {
+    // Save AsciiDoc as Docx
+    // Saves to intermediate XML, which is hidden and deleted
+    "command": "macros.convertAsciiDocToDocx",
+    "key": "alt+d",
+    "when": "editorFocus && editorLangId == asciidoc"
+  },
+  {
+    // Run ToCome snippet
+    "args": {
+      "name": "Add to come"
+    },
+    "command": "editor.action.insertSnippet",
+    "key": "alt+k",
+    "when": "editorTextFocus && editorLangId == asciidoc"
+  },
+  {
+    // Toggle showing history of modifications
+    "command": "gitlens.toggleGraph",
+    "key": "alt+m"
+  },
+  {
+    // Quick access to AsciiDoc snippets
+    // After the key press, type to filter
+    "command": "macros.asciidocSnippets",
+    "key": "alt+s",
+    "when": "editorFocus && editorLangId == asciidoc"
+  },
+  {
+    // Toggle editing
+    "args": {
+      "find": "^:(!)?editing:$",
+      "isRegex": true,
+      "preserveSelections": true,
+      "replace": ":${1:?:!}editing:"
+    },
+    "command": "findInCurrentFile",
+    "key": "alt+t",
+    "when": "editorTextFocus && editorLangId == asciidoc"
+  },
+  {
+    // Profiling words from current AsciiDoc file
+    "command": "extension.calculateWordStats",
+    "key": "alt+w",
+    "when": "editorFocus && editorLangId == asciidoc"
+  },
+  {
+    // Toggle check-box ToDos
+    // Cursor must be positioned within the ToDo text
+    "args": {
+      "find": "((?:\\*|//)\\s+\\[)( )?(x)?(\\].*?)(?=\\n|$)",
+      "isRegex": true,
+      "preserveSelections": true,
+      "replace": "$1${2:?x:}${3:? :}$4",
+      "restrictFind": "matchAroundCursor"
+    },
+    "command": "findInCurrentFile",
+    "key": "alt+x",
+    "when": "editorTextFocus && editorLangId == asciidoc"
+  },
+  {
+    // Turn Zen mode off
+    "command": "macros.zenModeOff",
+    "key": "alt+z",
+    "when": "inZenMode"
+  },
+  {
+    // Turn Zen mode on
+    "command": "macros.zenModeOn",
+    "key": "alt+z",
+    "when": "!inZenMode"
+  },
+  {
+    // Workaround for "Cannot load JSON schema..." issue
+    "command": "settings.cycle.vscodeIssue177142",
+    "key": "alt+/",
+    "when": "editorFocus && editorLangId == jsonc"
+  }
+]
+----
+
+=== User Settings
+
+If things do not work as expected,
+check for any user-level configurations
+that could influence those set at the Workspace.
+The configuration precedence is:
+menu:Default[User,Workspace,User.Language,Workspace.Language].
+
+From kbd:[Shift+Cmd+P],
+choose `Preferences: Open User Settings (JSON)`
+and apply the content below:
+
+[source,json]
+----
+{
+  "editor.fontLigatures": false, // Simplicity
+  "explorer.confirmDelete": false, // Trashcan is available
+  "explorer.confirmDragAndDrop": false, // Undo is available
+  "grunt.autoDetect": "off",
+  "gulp.autoDetect": "off",
+  "jake.autoDetect": "off",
+  "npm.autoDetect": "off",
+  "telemetry.telemetryLevel": "off", // Privacy
+  "typescript.tsc.autoDetect": "off",
+  "window.autoDetectColorScheme": true, // OS-feel
+  "window.nativeTabs": true, // OS-feel
+  "window.titleBarStyle": "native", // Simplicity
+  "workbench.colorTheme": "Kimbie Dark", // Restful
+  "workbench.editor.decorations.badges": true, // Clarity
+  "workbench.enableExperiments": false, // Stability
+  "workbench.iconTheme": "material-icon-theme", // Descriptive icons
+  "◊": true
+}
+----
+
+=== Word Macros
+
+This macro is intended to run
+in newly opened Word documents
+generated from a Composition AsciiDoc.
+
+Lozenge assumes
+that you keep the macro below aligned with
+any changes you apply to
+`lozenge/title_page.adoc`
+or `lozenge/template.docx_`.
+
+Add the below macro to the normal.dotx of your Word installation
+and https://support.microsoft.com/en-us/office/customize-keyboard-shortcuts-9a92343e-a781-4d5a-92f1-0f32e3ba5b4d[assign it a keyboard shortcut]
+using the category Macros.
+
+[source]
+----
+Sub insertRoundedWordCount()
+'
+' insertRoundedWordCount Macro
+' Inserts word count, rounded to the nearest thousand.
+'
+
+    Set formulaRound = Selection.Fields.Add(Range:=Selection.Range, Type:=wdFieldEmpty, Text:="=ROUND( , -3) \# #,##0", PreserveFormatting:=False)
+
+    ' 2 characters for "{ " of the field delimiters and 7 characters for "=ROUND("
+    ' The space between "(" and "," is because the countWords field will eat the space
+    Set countWords = Selection.Fields.Add(Range:=formulaRound.Code.Characters(2 + 7), Type:=wdFieldEmpty, Text:="NUMWORDS", PreserveFormatting:=False)
+
+    formulaRound.Update
+
+End Sub
+
+Sub deletePreamble()
+'
+' deletePreamble Macro
+' Delete Preamble inserted by AsciiDoc/DocBook/Pandoc conversion path.
+'
+    ' Delete Pandoc cover page
+    Selection.HomeKey Unit:=wdStory
+    Application.Browser.Next
+    Selection.HomeKey Unit:=wdStory, Extend:=wdExtend
+    Selection.TypeBackspace
+
+    ' Change Empty Header to Body Text
+    Selection.HomeKey Unit:=wdStory
+    Selection.Style = ActiveDocument.Styles("Normal")
+
+    ' Find and format the contact information
+    Selection.HomeKey Unit:=wdStory
+    Selection.Find.ClearFormatting
+    With Selection.Find
+        .Text = ChrW(9674) & "Contact" & ChrW(9674) & "*" & ChrW(9674) & _
+            "Contact" & ChrW(9674)
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchAllWordForms = False
+        .MatchSoundsLike = False
+        .MatchWildcards = True
+    End With
+    Selection.Find.Execute
+    Selection.Style = ActiveDocument.Styles("ContactInfo")
+
+    ' Find and remove contact information markers
+    Selection.HomeKey Unit:=wdStory
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = ChrW(9674) & "Contact" & ChrW(9674)
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
+    ' Update Header
+    Selection.HomeKey Unit:=wdStory
+    If ActiveWindow.View.SplitSpecial <> wdPaneNone Then
+        ActiveWindow.Panes(2).Close
+    End If
+    If ActiveWindow.ActivePane.View.Type = wdNormalView Or ActiveWindow. _
+        ActivePane.View.Type = wdOutlineView Then
+        ActiveWindow.ActivePane.View.Type = wdPrintView
+    End If
+    ActiveWindow.ActivePane.View.SeekView = wdSeekCurrentPageHeader
+    ActiveWindow.ActivePane.View.NextHeaderFooter
+    Selection.WholeStory
+    Selection.Fields.Update
+    ActiveWindow.ActivePane.View.SeekView = wdSeekMainDocument
+
+    ' Find a replace WordCount placeholder with actual word count
+    Selection.HomeKey Unit:=wdStory
+    With Selection.Find
+        .MatchWildcards = False
+        .Text = "◊WordCount◊"
+        .Execute
+    End With
+    Application.Run MacroName:="insertRoundedWordCount"
+
+    'Back to top of document
+    Selection.HomeKey Unit:=wdStory
+
+    ' Save clean-up work
+    ActiveDocument.Save
+
+End Sub
+----

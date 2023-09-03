@@ -1,0 +1,21 @@
+{
+    "Define proverb or word": {
+        "body": [
+            ":${1|Proverb,Term|}: ${TM_FILENAME_BASE/([^_]+)|(_)/${1:/capitalize}${2:+ }/g}",
+            ":!notitle:",
+            "",
+            "== $1 #{counter:$1} ${TM_FILENAME_BASE/([^_]+)|(_)/${1:/capitalize}${2:+ }/g}",
+            "",
+            ".Attributes",
+            "[caption=,cols=\"3,8\"]",
+            "|===",
+            "|Name|Value",
+            "",
+            "// Add attributes below",
+            "$0",
+            "|==="
+        ],
+        "prefix": "◊Vocabulary",
+        "scope": "asciidoc"
+    }
+}

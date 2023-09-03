@@ -1,0 +1,38 @@
+{
+    "Add date": {
+        "body": [
+            "|${1:AttributeName}|{set:$1:${2:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} @ ${CURRENT_HOUR}:${CURRENT_MINUTE}}}{$1}",
+            "$0"
+        ],
+        "prefix": "◊DateAttribute",
+        "scope": "asciidoc"
+    },
+    "Add text": {
+        "body": [
+            "|${1:AttributeName}|{set:$1:${2:Value}}{$1}",
+            "$0"
+        ],
+        "prefix": "◊TextAttribute",
+        "scope": "asciidoc"
+    },
+    "Define characters, arcs...": {
+        "body": [
+            ":${1|Arc,Character,Concept,Object,Setting|}: ${TM_FILENAME_BASE/([^_]+)|(_)/${1:/capitalize}${2:+ }/g}",
+            ":!notitle:",
+            "",
+            "== $1 #{counter:$1}: ${TM_FILENAME_BASE/([^_]+)|(_)/${1:/capitalize}${2:+ }/g}",
+            "",
+            ".Attributes",
+            "[caption=,cols=\"3,8\"]",
+            "|===",
+            "|Name|Value",
+            "",
+            "// Add attributes below",
+            "$0",
+            "|===",
+            ""
+        ],
+        "prefix": "◊Backstory",
+        "scope": "asciidoc"
+    }
+}

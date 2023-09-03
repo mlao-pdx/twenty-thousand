@@ -1,0 +1,473 @@
+{
+  "[asciidoc]": {
+    // Crisp, clean, fonts for writing AsciiDoc, not coding, nor publishing
+    // Triplicate by Matthew Butterick: https://practicaltypography.com/triplicate.html
+    "editor.fontFamily": "'Triplicate T3p', 'Courier New', monospace",
+    "editor.fontLigatures": "'kern','liga','SS01'",
+    "editor.fontSize": 18, // Easier on the eyes; helps focus too
+    "editor.formatOnSave": true, // Consistency; good for versioning too
+    "editor.minimap.autohide": true, // Simplicity; overview when we hover
+    "editor.quickSuggestions": {
+      // We are writing, not coding
+      "comments": "off",
+      "other": "off",
+      "strings": "off"
+    },
+    "editor.renderLineHighlight": "line", // Gentle focus
+    "editor.rulers": [], // Prose does not care about indentation alignment
+    "editor.trimAutoWhitespace": true, // No clutter
+    "editor.wordWrap": "bounded", // Keep writing in view
+    "editor.wrappingIndent": "same", // No jagged left edge
+    "◊": true
+  },
+  "asciidoc.debug.enableErrorDiagnostics": false,
+  "asciidoc.editor.enableDrop": true,
+  "asciidoc.preview.fontFamily": "'Triplicate T3p', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
+  "asciidoc.preview.fontSize": 14,
+  "asciidoc.preview.lineHeight": 1.6,
+  "asciidoc.preview.openLinksToAsciidocFiles": "inEditor",
+  "asciidoc.preview.preservePreviewWhenHidden": true,
+  "asciidoc.preview.refreshInterval": 0, // Only on (auto)save to avoid flicker
+  "asciidoc.useWorkspaceRootAsBaseDirectory": true, // Absolute from workspace to reduce link breakage
+  "command-runner.showRunCommandInEditorContextMenu": false,
+  "command-runner.showRunCommandInExplorerContextMenu": false,
+  "command-runner.terminal.autoClear": true,
+  "command-runner.terminal.autoFocus": false,
+  "command-runner.terminal.name": "runCommand",
+  "editor.cursorSurroundingLines": 500, // Keep our focus front and _center_
+  "editor.fontFamily": "'Triplicate T3c', 'Courier New', monospace",
+  "editor.fontLigatures": false, // We're coding, not writing
+  "editor.fontSize": 16,
+  "editor.pasteAs.enabled": true, // Needed for link pasting
+  "editor.renderLineHighlight": "line",
+  "editor.stickyScroll.enabled": true, // Keeps outline on top during composition
+  "editor.tabCompletion": "on",
+  "explorer.fileNesting.enabled": true, // Auto file management
+  "explorer.fileNesting.patterns": {
+    "*.adoc": "${capture}*", // Namesakes nest under AsciiDoc parent
+    "◊": ""
+  },
+  "explorer.incrementalNaming": "simple", // Best to name it properly
+  "explorer.sortOrder": "foldersNestsFiles", // Nests are NestedFiles
+  // Set autoSave too short and automations will trample upon themselves
+  // Set autoSave too long and UI actions will change context of automation
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 10000,
+  "files.defaultLanguage": "asciidoc",
+  // Simplicity; reduce file clutter in explorer
+  "files.exclude": {
+    "**/.git": true, // Local git repository
+    "**/.gitattributes": true, // Manage with 'git lfs track'
+    "**/.gitignore": true, // Files excluded from version management
+    "◊": true
+  },
+  "files.insertFinalNewline": true, // AsciiDoc is not Markdown
+  "files.trimFinalNewlines": true, // One will do
+  "files.trimTrailingWhitespace": true, // No clutter
+  "find-and-transform.enableWarningDialog": false, // Turn debugging off
+  "findInCurrentFile": {}, // This is where mass transforms go
+  // Simplicity & Safety; combine and automate git steps
+  "git.autoStash": true,
+  "git.autofetch": true,
+  "git.confirmEmptyCommits": false,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.fetchOnPull": true,
+  "git.postCommitCommand": "sync",
+  "git.showPushSuccessNotification": true,
+  // Search, show, and manage changes over time with GitLens
+  "gitlens.changes.locations": [
+    "line",
+    "gutter",
+    "overview"
+  ],
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false, // Too much clutter
+  "gitlens.defaultDateFormat": "dddd, MMMM Do, YYYY @ HH:mm:ss",
+  "gitlens.defaultDateShortFormat": "YYYYMMDD",
+  "gitlens.defaultTimeFormat": "HH:mm:ss",
+  "gitlens.graph.minimap.additionalTypes": [
+    "stashes",
+    "tags"
+  ],
+  "gitlens.graph.minimap.dataType": "lines",
+  "gitlens.graph.showRemoteNames": true,
+  "gitlens.heatmap.locations": [
+    "overview"
+  ],
+  "gitlens.menus": {
+    "editor": {
+      "blame": true,
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "editorGroup": {
+      "blame": true,
+      "compare": true
+    },
+    "editorGutter": {
+      "compare": true,
+      "remote": true,
+      "share": true
+    },
+    "editorTab": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "explorer": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "ghpr": {
+      "worktree": true
+    },
+    "scm": {
+      "graph": true
+    },
+    "scmGroup": {
+      "compare": true,
+      "openClose": true,
+      "stash": true
+    },
+    "scmGroupInline": {
+      "stash": true
+    },
+    "scmItem": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true,
+      "share": true,
+      "stash": true
+    },
+    "scmItemInline": {
+      "stash": false
+    },
+    "scmRepository": {
+      "authors": true,
+      "generateCommitMessage": true,
+      "graph": false
+    },
+    "scmRepositoryInline": {
+      "graph": true
+    }
+  },
+  "gitlens.plusFeatures.enabled": false,
+  "gitlens.statusBar.enabled": false,
+  "gitlens.views.branches.files.threshold": 3,
+  "gitlens.views.commitDetails.autolinks.enabled": true,
+  "gitlens.views.commitDetails.autolinks.enhanced": true,
+  "gitlens.views.commitDetails.files.threshold": 3,
+  "gitlens.views.commits.files.threshold": 3,
+  "gitlens.views.contributors.files.threshold": 3,
+  "gitlens.views.remotes.files.threshold": 3,
+  "gitlens.views.repositories.files.threshold": 3,
+  "gitlens.views.searchAndCompare.files.threshold": 3,
+  "gitlens.views.stashes.files.threshold": 3,
+  "gitlens.views.tags.files.threshold": 3,
+  "gitlens.views.worktrees.files.threshold": 3,
+  "gitlens.virtualRepositories.enabled": false,
+  "json.schemaDownload.enable": true, // Just a trick for a VSCode bug
+  "macros": {
+    // A shortcut to get Lozenge snippets to trigger
+    "asciidocSnippets": [
+      {
+        "args": {
+          "text": "◊"
+        },
+        "command": "type"
+      },
+      "editor.action.triggerSuggest"
+    ],
+    // Creating a Word docx for editors (assumes Composition document)
+    "convertAsciiDocToDocx": [
+      {
+        // Delete previous results
+        "args": {
+          "command": "rm -f ${fileDirname}/${fileBasenameNoExtension}.docx"
+        },
+        "command": "command-runner.run"
+      },
+      "asciidoc.saveDocbook",
+      {
+        // Convert Docbook to docx using template geared toward editors
+        // Outputs stderr to a *.error file
+        "args": {
+          "command": "pandoc --from docbook --to docx --output ${fileDirname}/${fileBasenameNoExtension}.docx --reference-doc=lozenge/template.docx_ ${fileDirname}/${fileBasenameNoExtension}.xml 2> ${fileDirname}/${fileBasenameNoExtension}_docx.error"
+        },
+        "command": "command-runner.run"
+      },
+      {
+        // Delete empty error files
+        "args": {
+          "command": "find . -name \"*.error\" -type f -size 0 -exec rm -f '{}' +"
+        },
+        "command": "command-runner.run"
+      },
+      {
+        // Delete Docbook intermediary
+        "args": {
+          "command": "rm -f ${fileDirname}/${fileBasenameNoExtension}.xml"
+        },
+        "command": "command-runner.run"
+      },
+      {
+        "args": {
+          "command": "echo; echo 'convertAsciiDocToDocx for ${fileBasename} was last run on' `date`; echo"
+        },
+        "command": "command-runner.run"
+      }
+    ],
+    "zenModeOff": [
+      "workbench.action.exitZenMode",
+      "gitlens.toggleZenMode"
+    ],
+    "zenModeOn": [
+      "workbench.action.toggleZenMode",
+      "gitlens.toggleZenMode"
+    ]
+  },
+  "material-icon-theme.folders.color": "#F9D849", // Use Kimbie Dark colors
+  "runOnSave.commands": [
+    {
+      // Sort .vscode JSONs for minimal diff
+      "command": "sort-json.ascendingSort",
+      "globMatch": "${workspaceFolder}/.vscode/*.@(json|code-snippets)",
+      "runIn": "vscode"
+    }
+  ],
+  "runOnSave.statusMessageTimeout": 7000,
+  "scm.alwaysShowActions": true,
+  "scm.diffDecorations": "gutter",
+  "scm.diffDecorationsGutterVisibility": "hover",
+  "scm.diffDecorationsIgnoreTrimWhitespace": "true", // Only show material changes
+  "settings.cycle": [
+    {
+      // Workaround for "Cannot load JSON schema..." issue
+      // Issue number is old, but seems to be irregularly recurring
+      "id": "vscodeIssue177142",
+      "overrideWorkspaceSettings": true,
+      "values": [
+        {
+          "json.schemaDownload.enable": true
+        },
+        {
+          "json.schemaDownload.enable": false
+        }
+      ]
+    }
+  ],
+  "sort-json.settings.contextMenu": {
+    "ascendingSort": true, // Consistency over options
+    "sortJsonSubMenu": false // Clean and minimal
+  },
+  "sort-json.settings.isCaseSensitive": true, // Consistency
+  "sort-json.settings.sortLevel": -1, // Sort all the way down
+  "sort-json.settings.sortMode": "Objects Only", // Only objects, arrays stay put
+  // Only spell check AsciiDoc to cut down on "false" alarms
+  "spellright.documentTypes": [
+    "asciidoc"
+  ],
+  "spellright.ignoreRegExpsByClass": {
+    // Do not spell check AsciiDoc attribute & macro names
+    "asciidoc": [
+      "/^:[a-z_A-Z][-a-z_A-Z0-9]*:/gm",
+      "/^[a-z_A-Z][-a-z_A-Z0-9]*::/gm",
+      "/\\W[a-z_A-Z][-a-z_A-Z0-9]*:/gm",
+      "/{[a-z_A-Z][-a-z_A-Z0-9]*(:.+)?}/gm"
+    ]
+  },
+  "spellright.language": [
+    "en"
+  ],
+  "spellright.notificationClass": "hint", // Minimal visual disruption
+  "timeline.pageOnScroll": true,
+  "todo-tree.filtering.includeGlobs": [
+    "**/*.adoc"
+  ],
+  "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
+  "todo-tree.general.automaticGitRefreshInterval": 10,
+  "todo-tree.general.revealBehaviour": "end of todo",
+  "todo-tree.general.tagGroups": {
+    "..Bookmarks": [
+      "BM"
+    ],
+    "..Done": [
+      "[x]",
+      "[X]"
+    ],
+    "..ToCome": [
+      "TK"
+    ],
+    "..ToDo": [
+      "[ ]"
+    ],
+    ".Compositions": [
+      "Composition"
+    ],
+    ".Scenes": [
+      "Scene",
+      "Sequence"
+    ],
+    "Arcs": [
+      "Arc"
+    ],
+    "Characters": [
+      "Character"
+    ],
+    "Concepts": [
+      "Concept"
+    ],
+    "Objects": [
+      "Object"
+    ],
+    "Settings": [
+      "Setting"
+    ],
+    "_Notes": [
+      "Note"
+    ],
+    "_Vocabulary": [
+      "Proverb",
+      "Term"
+    ]
+  },
+  "todo-tree.general.tags": [
+    "[ ]",
+    "[x]",
+    "[X]",
+    "TK",
+    "Arc",
+    "BM",
+    "Character",
+    "Composition",
+    "Concept",
+    "Note",
+    "Object",
+    "Proverb",
+    "Scene",
+    "Sequence",
+    "Setting",
+    "Term"
+  ],
+  "todo-tree.highlights.customHighlight": {
+    "..Bookmarks": {
+      "fontStyle": "",
+      "foreground": "#F9D849", // Use Kimbie Dark colors
+      "gutterIcon": true,
+      "hideFromStatusBar": false,
+      "icon": "bookmark", // only octicon take color and display in gutter
+      "iconColour": "#F9D849" // Use Kimbie Dark colors
+    },
+    "..Done": {
+      "fontStyle": "",
+      "foreground": "#777", // Use Kimbie Dark colors
+      "gutterIcon": true,
+      "hideFromStatusBar": false,
+      "icon": "check-circle", // only octicon take color and display in gutter
+      "iconColour": "#777", // Use Kimbie Dark colors
+      "textDecoration": "solid line-through #777",
+      "type": "text-and-comment"
+    },
+    "..ToCome": {
+      "fontStyle": "",
+      "foreground": "#F9D849", // Use Kimbie Dark colors
+      "gutterIcon": true,
+      "hideFromStatusBar": false,
+      "icon": "diff-added", // only octicon take color and display in gutter
+      "iconColour": "#F9D849" // Use Kimbie Dark colors
+    },
+    "..ToDo": {
+      "fontStyle": "",
+      "foreground": "#F9D849", // Use Kimbie Dark colors
+      "gutterIcon": true,
+      "hideFromStatusBar": false,
+      "icon": "circle", // only octicon take color and display in gutter
+      "iconColour": "#F9D849" // Use Kimbie Dark colors
+    },
+    ".Compositions": {
+      "icon": "$(combine)" // codicons seem crisper than octicons
+    },
+    ".Scenes": {
+      "icon": "$(feedback)"
+    },
+    "Arcs": {
+      "icon": "$(pulse)"
+    },
+    "Characters": {
+      "icon": "$(account)"
+    },
+    "Concepts": {
+      "icon": "$(law)"
+    },
+    "Objects": {
+      "icon": "$(tools)"
+    },
+    "Settings": {
+      "icon": "$(location)"
+    },
+    "_Notes": {
+      "icon": "$(note)"
+    },
+    "_Vocabulary": {
+      "icon": "$(library)"
+    }
+  },
+  "todo-tree.highlights.defaultHighlight": {
+    "background": "#221A0F", // Use Kimbie Dark colors
+    "fontStyle": "italic",
+    "fontWeight": "700",
+    "foreground": "#D3AF86", // Use Kimbie Dark colors
+    "gutterIcon": false,
+    "hideFromStatusBar": true,
+    "icon": "$(folder)",
+    "opacity": 0,
+    "type": "tag-and-subTag"
+  },
+  // ToDoTree Regex flavor: https://docs.rs/regex/1.9.1/regex/#syntax
+  // Pattern with tests https://regex101.com/r/JDOUZu/18
+  "todo-tree.regex.regex": "(^:($TAGS):\\s|^\\*+\\s+($TAGS)\\s|(?://\\s*)($TAGS)\\s|◊($TAGS))",
+  "todo-tree.regex.regexCaseSensitive": true, // Definition (:Setting: Here) vs. Reference (:setting: Here)
+  "todo-tree.regex.subTagRegex": "(?::|\\s)*", // Keep tag trailings out of labels
+  "todo-tree.tree.buttons.groupBySubTag": false, // No subtags configured
+  // Display is easily messed up and cumbersome to get it back
+  // Toggle buttons back on, change display to your liking, turn buttons back off
+  "todo-tree.tree.buttons.groupByTag": false, // No accidental changes
+  "todo-tree.tree.buttons.scanMode": false, // No accidental changes
+  "todo-tree.tree.buttons.viewStyle": false, // No accidental changes
+  "todo-tree.tree.groupedByTag": true, // Group Scenes, Charaters, Compositions, etc.
+  "todo-tree.tree.labelFormat": "${after} (${tag:lowercase})",
+  "todo-tree.tree.scanMode": "workspace", // Freedom of organization means we search it all
+  "todo-tree.tree.showCountsInTree": true,
+  "todo-tree.tree.showCurrentScanMode": false, // No clutter
+  "todo-tree.tree.sortTagsOnlyViewAlphabetically": true,
+  "todo-tree.tree.tagsOnly": true, // Use tooltip or Explorer to see files
+  "todo-tree.tree.tooltipFormat": "${filename} (${line})",
+  "wordcounter.include_eol_chars": false,
+  "wordcounter.side.left": [
+    "readingtime",
+    "word"
+  ],
+  "wordcounter.simple_wordcount": false,
+  "wordcounter.text.delimiter": " ",
+  "wordcounter.text.readingtime": "",
+  "wordcounter.text.word": "w",
+  "wordcounter.text.words": "w",
+  "wordcounter.wpm": 225,
+  "workbench.colorTheme": "Kimbie Dark", // Restful
+  "zenMode.centerLayout": true,
+  "zenMode.fullScreen": true,
+  "zenMode.hideActivityBar": true,
+  "zenMode.hideLineNumbers": true,
+  "zenMode.hideStatusBar": false, // Keep word count visible
+  "zenMode.hideTabs": true,
+  "zenMode.restore": false,
+  "zenMode.silentNotifications": true,
+  "◊": true
+}

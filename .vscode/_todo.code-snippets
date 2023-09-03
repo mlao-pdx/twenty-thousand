@@ -1,0 +1,30 @@
+{
+    "Add bookmark as comment": {
+        "body": [
+            "// BM ${1:Bookmark}$0"
+        ],
+        "prefix": "◊Bookmark",
+        "scope": "asciidoc"
+    },
+    "Add to come": {
+        "body": [
+            "◊TK ${1:ToCome}$0"
+        ],
+        "prefix": "◊ToCome (TK)*",
+        "scope": "asciidoc"
+    },
+    "Add todo as bullet": {
+        "body": [
+            "* [ ] ${1:ToDo}$0"
+        ],
+        "prefix": "◊Todo*",
+        "scope": "asciidoc"
+    },
+    "Add todo as comment": {
+        "body": [
+            "\n// [ ] ${1:ToDo}$0"
+        ],
+        "prefix": "◊Todo",
+        "scope": "asciidoc"
+    }
+}

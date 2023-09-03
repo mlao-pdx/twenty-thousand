@@ -1,0 +1,168 @@
+{
+    "Add cast": {
+        "body": [
+            "|${1}|{$1}",
+            "$0"
+        ],
+        "prefix": "◊Cast",
+        "scope": "asciidoc"
+    },
+    "Add goal": {
+        "body": [
+            "|${1:ArcName}",
+            "|{$1Decision}${2:Cause}",
+            "|${3:Effect}",
+            "|{set:$1Decision:${4:Decision}}{$1Decision}",
+            "",
+            "$0"
+        ],
+        "prefix": "◊Goal",
+        "scope": "asciidoc"
+    },
+    "Define composition": {
+        // revnumber: Published.GivenToEditor.MyChanges
+        "body": [
+            ":Composition: ${TM_FILENAME_BASE/([^_]+)|(_)/${1:/capitalize}${2:+ }/g}${1/(.*)/${1:+: }${1}/}",
+            ":doctitle: {Composition}",
+            ":doctype: book",
+            ":revnumber: 0.0.1",
+            ":revremark: ",
+            ":subtitle: ${1:Subtitle}",
+            ":title: {doctitle}",
+            ":category: ${2|Adult,Backstory,Young Adult,Children|}",
+            ":genre: ${3|Contemporary,Fantasy,Historical Fiction,Horror,Mystery,Romance,Science Fiction|}",
+            ":keywords: {category}, {genre}, ",
+            ":!notitle:",
+            ":editing:",
+            ":_outline:",
+            "include::lozenge/title_page.adoc[]",
+            "",
+            "",
+            "= ${4:Part}$0",
+            "",
+            "",
+            "include::lozenge/closing_page.adoc[]",
+            "ifeval::[\"{category}\" != \"Backstory\"]",
+            "ifdef::editing[]",
+            ".In The End",
+            "[%collapsible]",
+            "====",
+            "",
+            ".Final Context",
+            "[caption=,cols=\"^3,^4,^4\"]",
+            "|===",
+            "3+s| PERSPECTIVE",
+            "|{pov}|{time}|{setting}",
+            "|===",
+            "",
+            ".Final Goals",
+            "[caption=,cols=\"2,3,3,3\"]",
+            "|===",
+            "|Arc|Cause|Effect|Decision",
+            "",
+            "// Add goals below:",
+            "",
+            "|===",
+            "",
+            ".Final Cast",
+            "[caption=,cols=\"3,8\"]",
+            "|===",
+            "|Character|Continuity Notes",
+            "",
+            "// Add cast below",
+            "",
+            "|===",
+            "====",
+            "",
+            ".Outline of {doctitle}",
+            "[%collapsible]",
+            "====",
+            "{_outline}",
+            "====",
+            "endif::[]",
+            "endif::[]",
+            ""
+        ],
+        "prefix": "◊Composition",
+        "scope": "asciidoc"
+    },
+    "Define scene": {
+        "body": [
+            ":Scene: ${TM_FILENAME_BASE/([^_]+)|(_)/${1:/capitalize}${2:+ }/g}",
+            ":revremark: Initial draft",
+            ":outline: ${1:One paragraph outline without hard line breaks.}",
+            ":_outline: {_outline} + \\",
+            "{outline}",
+            "",
+            "ifdef::editing[]",
+            ".Scene #{counter:scenes}: {Scene}",
+            "[%collapsible]",
+            "====",
+            "",
+            ".Context",
+            "[caption=,cols=\"^3,^4,^4\"]",
+            "|===",
+            "3+s| FROM PERSPECTIVE",
+            "|{pov}|{time}|{setting}",
+            "3+s| TO PERSPECTIVE",
+            "|{set:pov:${2:Character}}{pov}|{set:time:${3:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} @ ${CURRENT_HOUR}:${CURRENT_MINUTE}}}{time}|{set:setting:${4:Setting}}{setting}",
+            "|===",
+            "",
+            ".Goals",
+            "[caption=,cols=\"2,3,3,3\"]",
+            "|===",
+            "|Arc|Cause|Effect|Decision",
+            "",
+            "// Add goals below:",
+            "$0",
+            "|===",
+            "",
+            ".Cast",
+            "[caption=,cols=\"3,8\"]",
+            "|===",
+            "|Character|Continuity Notes",
+            "",
+            "// Add cast below",
+            "",
+            "|===",
+            "====",
+            "endif::[]",
+            "",
+            ""
+        ],
+        "prefix": "◊Scene",
+        "scope": "asciidoc"
+    },
+    "Mark continuity": {
+        "body": [
+            ":${1:Character}: {$1} $0",
+            ""
+        ],
+        "prefix": "◊Continuity",
+        "scope": "asciidoc"
+    },
+    "Mark sequence": {
+        "body": [
+            ":Sequence: ${TM_FILENAME_BASE/([^_]+)|(_)/${1:/capitalize}${2:+ }/g}",
+            "$0"
+        ],
+        "prefix": "◊Sequence",
+        "scope": "asciidoc"
+    },
+    "Mark setting": {
+        "body": [
+            ":setting: ${1:Setting}",
+            "$0"
+        ],
+        "prefix": "◊Setting",
+        "scope": "asciidoc"
+    },
+    "Mark time": {
+        "body": [
+            ":time: ${1:${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} @ ${CURRENT_HOUR}:${CURRENT_MINUTE}}",
+            "$0"
+        ],
+        "prefix": "◊Time",
+        "scope": "asciidoc"
+    }
+}
