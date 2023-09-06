@@ -13,10 +13,11 @@
       "other": "off",
       "strings": "off"
     },
-    "editor.renderLineHighlight": "line", // Gentle focus
-    "editor.rulers": [], // Prose does not care about indentation alignment
+    "editor.renderLineHighlight": "gutter", // Gentle focus
+    "editor.rulers": [], // No formatting clutter
     "editor.trimAutoWhitespace": true, // No clutter
     "editor.wordWrap": "bounded", // Keep writing in view
+    "editor.wordWrapColumn": 120, // Wrap at viewport, when using Semantic Line Breaks
     "editor.wrappingIndent": "same", // No jagged left edge
     "◊": true
   },
@@ -29,19 +30,19 @@
   "asciidoc.preview.preservePreviewWhenHidden": true,
   "asciidoc.preview.refreshInterval": 0, // Only on (auto)save to avoid flicker
   "asciidoc.useWorkspaceRootAsBaseDirectory": true, // Absolute from workspace to reduce link breakage
-  "command-runner.showRunCommandInEditorContextMenu": false,
-  "command-runner.showRunCommandInExplorerContextMenu": false,
-  "command-runner.terminal.autoClear": true,
-  "command-runner.terminal.autoFocus": false,
+  "command-runner.showRunCommandInEditorContextMenu": false, // No clutter
+  "command-runner.showRunCommandInExplorerContextMenu": false, // No clutter
+  "command-runner.terminal.autoClear": true, // No clutter
+  "command-runner.terminal.autoFocus": false, // Run silently
   "command-runner.terminal.name": "runCommand",
   "editor.cursorSurroundingLines": 500, // Keep our focus front and _center_
   "editor.fontFamily": "'Triplicate T3c', 'Courier New', monospace",
-  "editor.fontLigatures": false, // We're coding, not writing
-  "editor.fontSize": 16,
+  "editor.fontLigatures": false, // Here, we're coding, not writing
+  "editor.fontSize": 16, // No squinting
   "editor.pasteAs.enabled": true, // Needed for link pasting
-  "editor.renderLineHighlight": "line",
+  "editor.renderLineHighlight": "gutter",
   "editor.stickyScroll.enabled": true, // Keeps outline on top during composition
-  "editor.tabCompletion": "on",
+  "editor.tabCompletion": "off", // Triggers too many false completions
   "explorer.fileNesting.enabled": true, // Auto file management
   "explorer.fileNesting.patterns": {
     "*.adoc": "${capture}*", // Namesakes nest under AsciiDoc parent
@@ -460,6 +461,16 @@
   "wordcounter.text.word": "w",
   "wordcounter.text.words": "w",
   "wordcounter.wpm": 225,
+  "workbench.colorCustomizations": {
+    "[Kimbie Dark]": {
+      // Tone line numbers and linehighlight down a bit
+      "editor.lineHighlightBackground": "#4d341a88",
+      "editorLineNumber.activeForeground": "#554d4b",
+      "editorLineNumber.dimmedForeground": "#332b20",
+      "editorLineNumber.foreground": "#332b20",
+      "highlightLogicalLine.background": "#4d341a88"
+    }
+  },
   "workbench.colorTheme": "Kimbie Dark", // Restful
   "zenMode.centerLayout": true,
   "zenMode.fullScreen": true,

@@ -13,6 +13,7 @@
   // sandcastle.vscode-open: Opens docx files in Word
   // thinker.sort-json: Format JSON by sorting on object keys
   // tomoki1207.pdf: View PDF within VS Code
+  // usernamehw.highlight-logical-line: Highlight line across word wraps
   "recommendations": [
     "AnelGroup.word-stats",
     "arturodent.find-and-transform",
@@ -27,7 +28,8 @@
     "pucelle.run-on-save",
     "sandcastle.vscode-open",
     "thinker.sort-json",
-    "tomoki1207.pdf"
+    "tomoki1207.pdf",
+    "usernamehw.highlight-logical-line"
   ],
   "unwantedRecommendations": []
 }
