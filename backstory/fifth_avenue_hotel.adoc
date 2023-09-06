@@ -1,0 +1,15 @@
+:Setting: Fifth Avenue Hotel, NY
+:!notitle:
+
+== Setting #{counter:Setting}: Fifth Avenue Hotel, NY
+
+.Attributes
+[caption=,cols="3,8"]
+|===
+|Name|Value
+
+// Add attributes below
+
+|===
+
+A finely appointment establishment that only hosts the upper crust of intelligentsia.

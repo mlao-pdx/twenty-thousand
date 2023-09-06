@@ -1,0 +1,67 @@
+:Composition: Twenty Thousands Leagues Under The Sea: Backstory
+:doctitle: {Composition}
+:doctype: book
+:revnumber: 0.0.1
+:revremark:
+:subtitle: Backstory
+:title: {doctitle}
+:category: Backstory
+:genre: Science Fiction
+:keywords: {category}, {genre},
+:!notitle:
+:editing:
+:_outline:
+include::lozenge/title_page.adoc[]
+
+
+= Characters
+
+include::backstory/pierre_aronnax.adoc[]
+
+include::backstory/conseil.adoc[]
+
+= Settings
+
+include::backstory/fifth_avenue_hotel.adoc[]
+
+
+include::lozenge/closing_page.adoc[]
+ifeval::["{category}" != "Backstory"]
+ifdef::editing[]
+.In The End
+[%collapsible]
+====
+
+.Final Context
+[caption=,cols="^3,^4,^4"]
+|===
+3+s| PERSPECTIVE
+|{pov}|{time}|{setting}
+|===
+
+.Final Goals
+[caption=,cols="2,3,3,3"]
+|===
+|Arc|Cause|Effect|Decision
+
+// Add goals below:
+
+|===
+
+.Final Cast
+[caption=,cols="3,8"]
+|===
+|Character|Continuity Notes
+
+// Add cast below
+
+|===
+====
+
+.Outline of {doctitle}
+[%collapsible]
+====
+{_outline}
+====
+endif::[]
+endif::[]

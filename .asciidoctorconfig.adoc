@@ -1,1 +1,22 @@
-:imagesdir: Empty_out_.asciidoctorconfig.adoc_and_press_alt+a
+// ASCIIDOC(TOR) FEATURES
+:attribute-missing: warn
+:attribute-undefined: warn
+:backend: docbook5
+:experimental:
+:imagesdir: /Users/ao/Documents/AO/lozenge/twenty-thousand
+:lang: en
+:notitle:
+// AUTHOR INFORMATION
+:title_author: Jules Verne
+:author: VERNE
+// CONTACT INFORMATION
+:contact_name: Legal Name
+:contact_street: 123 Address Street
+:contact_city_state_zip: Contact City, ST, 12345
+:contact_phone: +1 (555) 123-4567
+:contact_email: legal.name@example.com
+// LOZENGE CONFIGURATION
+:editing:
+:pov: Who
+:time: When
+:setting: Where

@@ -1,0 +1,20 @@
+:Character: Pierre Aronnax
+:!notitle:
+
+== Character #{counter:Character}: Pierre Aronnax
+
+.Attributes
+[caption=,cols="3,8"]
+|===
+|Name|Value
+
+// Add attributes below
+|Role|{set:Role:Protagonist}{Role}
+
+|===
+
+Pierre Aronnax is an assistant professor at the Museum of Paris.
+
+He has a man servant named Conseil.
+
+* [x] Make sure the establish Pierre as a man of science, meticulous, and not easily convinced without empirical evidence.

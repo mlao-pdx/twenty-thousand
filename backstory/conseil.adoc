@@ -1,0 +1,14 @@
+:Character: Conseil
+:!notitle:
+
+== Character #{counter:Character}: Conseil
+
+.Attributes
+[caption=,cols="3,8"]
+|===
+|Name|Value
+
+// Add attributes below
+|Role|{set:Role:Minor character}{Role}
+
+|===
